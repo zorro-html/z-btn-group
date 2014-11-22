@@ -4,11 +4,24 @@
 
 * 可以包含 `<jie-btn>` 和 `<jie-dropdown>` 元素
 * 可以结合 horizontal layout flex 等特性达到类似 justified 的效果
+* 可以结合 `[radio]` 或 `[multi]` 完成单选/多选的效果
 
 # Example
 
 ```
 <jie-btn-group>
+  <jie-btn flex>Button</jie-btn>
+  <jie-btn flex>Button</jie-btn>
+  <jie-btn flex>Button</jie-btn>
+</jie-btn-group>
+
+<jie-btn-group radio>
+  <jie-btn flex>Button</jie-btn>
+  <jie-btn flex>Button</jie-btn>
+  <jie-btn flex>Button</jie-btn>
+</jie-btn-group>
+
+<jie-btn-group multi>
   <jie-btn flex>Button</jie-btn>
   <jie-btn flex>Button</jie-btn>
   <jie-btn flex>Button</jie-btn>
@@ -36,3 +49,4 @@
     </jie-menu>
   </jie-dropdown>
 </jie-btn-group>
+```

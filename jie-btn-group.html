@@ -5,11 +5,24 @@
 
   * 可以包含 `<jie-btn>` 和 `<jie-dropdown>` 元素
   * 可以结合 horizontal layout flex 等特性达到类似 justified 的效果
+  * 可以结合 `[radio]` 或 `[multi]` 完成单选/多选的效果
 
   # Example
 
   ```
   <jie-btn-group>
+    <jie-btn flex>Button</jie-btn>
+    <jie-btn flex>Button</jie-btn>
+    <jie-btn flex>Button</jie-btn>
+  </jie-btn-group>
+
+  <jie-btn-group radio>
+    <jie-btn flex>Button</jie-btn>
+    <jie-btn flex>Button</jie-btn>
+    <jie-btn flex>Button</jie-btn>
+  </jie-btn-group>
+
+  <jie-btn-group multi>
     <jie-btn flex>Button</jie-btn>
     <jie-btn flex>Button</jie-btn>
     <jie-btn flex>Button</jie-btn>
@@ -41,9 +54,10 @@
 -->
 
 <link rel="import" href="../polymer/polymer.html">
+<link rel="import" href="../core-selector/core-selector.html">
 <link rel="import" href="../jie-dropdown/jie-dropdown.html">
 
-<polymer-element name="jie-btn-group" attributes="">
+<polymer-element name="jie-btn-group" extends="core-selector" attributes="radio">
 
   <template>
     <style>
@@ -82,11 +96,28 @@
         border-bottom-left-radius: 0;
       }
     </style>
-    <content select="jie-btn, jie-dropdown"></content>
+    <shadow></shadow>
   </template>
 
   <script>
     Polymer('jie-btn-group', {
+      radio: false,
+      domReady: function () {
+        this.checkMode();
+      },
+      radioChanged: function (o, n) {
+        this.checkMode();
+      },
+      checkMode: function () {
+        var radio = this.radio;
+        var multi = this.multi;
+        if (radio || multi) {
+          this.notap = false;
+        }
+        else {
+          this.notap = true;
+        }
+      }
     });
   </script>
 
