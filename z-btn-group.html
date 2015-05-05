@@ -1,0 +1,177 @@
+<!--
+
+@element z-btn-group
+
+# `<z-btn-group>`
+
+A group element which contains buttons or dropdowns
+
+- could contains `<z-btn>` or `<z-dropdown>` elements
+- could add attributes like `[horizontal]` `[layout]` `[flex]` to make `justified` effect
+- could add attributes `[radio]` or `[multi]` to enable radio / checkbox style selection
+
+## Attributes
+
+- `radio`: enable single selection mode
+- `multi`: enable multi selection mode
+
+-->
+
+<!--
+
+@example default
+
+<z-btn-group>
+  <z-btn>Button</z-btn>
+  <z-btn>Button</z-btn>
+  <z-btn>Button</z-btn>
+</z-btn-group>
+
+<z-btn-group>
+  <z-dropdown>
+    <z-btn>Button</z-btn>
+    <z-menu>
+      <li>ITEM</li>
+      <li>ITEM</li>
+    </z-menu>
+  </z-dropdown>
+  <z-btn>Button</z-btn>
+  <z-btn>Button</z-btn>
+</z-btn-group>
+
+<z-btn-group>
+  <z-btn>Button</z-btn>
+  <z-dropdown>
+    <z-btn>Button</z-btn>
+    <z-menu>
+      <li>ITEM</li>
+      <li>ITEM</li>
+    </z-menu>
+  </z-dropdown>
+  <z-btn>Button</z-btn>
+</z-btn-group>
+
+-->
+
+<!--
+
+@example Button Group Block
+
+<z-btn-group horizontal layout>
+  <z-btn flex>Button</z-btn>
+  <z-btn flex>Button</z-btn>
+  <z-btn flex>Button</z-btn>
+</z-btn-group>
+
+-->
+
+<!--
+
+@example Radio Button Group
+
+<z-btn-group radio>
+  <z-btn>Radio Button</z-btn>
+  <z-btn>Radio Button</z-btn>
+  <z-btn active>Radio Button</z-btn>
+</z-btn-group>
+
+-->
+
+<!--
+
+@example Checkbox Button Group
+
+<z-btn-group multi>
+  <z-btn active>Checkbox Button</z-btn>
+  <z-btn>Checkbox Button</z-btn>
+  <z-btn active>Checkbox Button</z-btn>
+</z-btn-group>
+
+-->
+
+<!--
+
+@example Split Button
+
+<z-btn-group>
+  <z-btn>Button</z-btn>
+  <z-dropdown>
+    <z-btn></z-btn>
+    <z-menu>
+      <li>ITEM</li>
+      <li>ITEM</li>
+    </z-menu>
+  </z-dropdown>
+</z-btn-group>
+
+-->
+
+<link rel="import" href="../polymer/polymer.html">
+<link rel="import" href="../core-selector/core-selector.html">
+<link rel="import" href="../z-dropdown/z-dropdown.html">
+
+<polymer-element name="z-btn-group" extends="core-selector" attributes="radio" selectedClass="">
+
+  <template>
+    <style>
+      :host {display: inline-block;}
+      ::content z-btn {
+        box-sizing: border-box;
+      }
+      ::content z-btn:hover,
+      ::content z-btn:focus,
+      ::content z-btn:active,
+      ::content z-btn[active] {
+        z-index: 2;
+      }
+      ::content z-btn + z-btn,
+      ::content z-btn + z-dropdown,
+      ::content z-dropdown + z-btn,
+      ::content z-dropdown + z-dropdown {
+        margin-left: -1px;
+      }
+      ::content > z-btn:first-child,
+      ::content > z-dropdown:first-child > z-btn {
+        margin-left: 0;
+      }
+      ::content > z-btn:last-child,
+      ::content > z-dropdown:last-child > z-btn {
+        margin-right: 0;
+      }
+      ::content > z-btn:not(:last-child),
+      ::content > z-dropdown:not(:last-child) > z-btn {
+        border-top-right-radius: 0;
+        border-bottom-right-radius: 0;
+      }
+      ::content > z-btn:not(:first-child),
+      ::content > z-dropdown:not(:first-child) > z-btn {
+        border-top-left-radius: 0;
+        border-bottom-left-radius: 0;
+      }
+    </style>
+    <shadow></shadow>
+  </template>
+
+  <script>
+    Polymer('z-btn-group', {
+      radio: false,
+      domReady: function () {
+        this.checkMode();
+      },
+      radioChanged: function (o, n) {
+        this.checkMode();
+      },
+      checkMode: function () {
+        var radio = this.radio;
+        var multi = this.multi;
+        if (radio || multi) {
+          this.notap = false;
+        }
+        else {
+          this.notap = true;
+        }
+      }
+    });
+  </script>
+
+</polymer-element>
