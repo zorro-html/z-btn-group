@@ -1,52 +1,91 @@
-# btn-group
+# `<z-btn-group>`
 
-按钮组合
+A group element which contains buttons or dropdowns
 
-* 可以包含 `<jie-btn>` 和 `<jie-dropdown>` 元素
-* 可以结合 horizontal layout flex 等特性达到类似 justified 的效果
-* 可以结合 `[radio]` 或 `[multi]` 完成单选/多选的效果
+- could contains `<z-btn>` or `<z-dropdown>` elements
+- could add attributes like `[horizontal]` `[layout]` `[flex]` to make `justified` effect
+- could add attributes `[radio]` or `[multi]` to enable radio / checkbox style selection
 
-# Example
+## Attributes
+
+- `radio`: enable single selection mode
+- `multi`: enable multi selection mode
+
+## Examples
 
 ```
-<jie-btn-group>
-  <jie-btn flex>Button</jie-btn>
-  <jie-btn flex>Button</jie-btn>
-  <jie-btn flex>Button</jie-btn>
-</jie-btn-group>
+<z-btn-group>
+  <z-btn>Button</z-btn>
+  <z-btn>Button</z-btn>
+  <z-btn>Button</z-btn>
+</z-btn-group>
 
-<jie-btn-group radio>
-  <jie-btn flex>Button</jie-btn>
-  <jie-btn flex>Button</jie-btn>
-  <jie-btn flex>Button</jie-btn>
-</jie-btn-group>
-
-<jie-btn-group multi>
-  <jie-btn flex>Button</jie-btn>
-  <jie-btn flex>Button</jie-btn>
-  <jie-btn flex>Button</jie-btn>
-</jie-btn-group>
-
-<jie-btn-group horizontal layout>
-  <jie-btn flex>Button</jie-btn>
-  <jie-dropdown flex>
-    <jie-btn>Hello</jie-btn>
-    <jie-menu>
+<z-btn-group>
+  <z-dropdown>
+    <z-btn>Button</z-btn>
+    <z-menu>
       <li>ITEM</li>
       <li>ITEM</li>
-    </jie-menu>
-  </jie-dropdown>
-  <jie-btn flex>Button</jie-btn>
-</jie-btn-group>
+    </z-menu>
+  </z-dropdown>
+  <z-btn>Button</z-btn>
+  <z-btn>Button</z-btn>
+</z-btn-group>
 
-<jie-btn-group>
-  <jie-btn>Button</jie-btn>
-  <jie-dropdown>
-    <jie-btn></jie-btn>
-    <jie-menu>
+<z-btn-group>
+  <z-btn>Button</z-btn>
+  <z-dropdown>
+    <z-btn>Button</z-btn>
+    <z-menu>
       <li>ITEM</li>
       <li>ITEM</li>
-    </jie-menu>
-  </jie-dropdown>
-</jie-btn-group>
+    </z-menu>
+  </z-dropdown>
+  <z-btn>Button</z-btn>
+</z-btn-group>
+```
+
+### Button Group Block
+
+```
+<z-btn-group horizontal layout>
+  <z-btn flex>Button</z-btn>
+  <z-btn flex>Button</z-btn>
+  <z-btn flex>Button</z-btn>
+</z-btn-group>
+```
+
+### Radio Button Group
+
+```
+<z-btn-group radio>
+  <z-btn>Radio Button</z-btn>
+  <z-btn>Radio Button</z-btn>
+  <z-btn active>Radio Button</z-btn>
+</z-btn-group>
+```
+
+### Checkbox Button Group
+
+```
+<z-btn-group multi>
+  <z-btn active>Checkbox Button</z-btn>
+  <z-btn>Checkbox Button</z-btn>
+  <z-btn active>Checkbox Button</z-btn>
+</z-btn-group>
+```
+
+### Split Button
+
+```
+<z-btn-group>
+  <z-btn>Button</z-btn>
+  <z-dropdown>
+    <z-btn></z-btn>
+    <z-menu>
+      <li>ITEM</li>
+      <li>ITEM</li>
+    </z-menu>
+  </z-dropdown>
+</z-btn-group>
 ```

@@ -1,10 +1,18 @@
 {
-  "name": "jie-btn-group",
-  "version": "0.0.3",
-  "main": "jie-btn-group.html",
+  "name": "z-btn-group",
+  "version": "1.0.0",
+  "main": "z-btn-group.html",
+  "ignore": [
+    "test"
+  ],
   "dependencies": {
     "polymer": "~0.5.0",
+    "docs-parser": "Jinjiang/context-free-parser#master",
     "core-selector": "Polymer/core-selector#~0.5.1",
-    "jie-dropdown": "Jinjiang/jie-dropdown#~0.0.3"
+    "z-dropdown": "zorro-html/z-dropdown"
+  },
+  "devDependencies": {
+    "docs-maker": "zorro-html/zorro-docs-maker",
+    "web-component-tester": "Polymer/web-component-tester#^1.4.2"
   }
 }
