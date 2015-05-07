@@ -138,11 +138,13 @@ A group element which contains buttons or dropdowns
       ::content > z-dropdown:last-child > z-btn {
         margin-right: 0;
       }
+      polyfill-next-selector {content: ':host > z-btn:not(:last-child), z-dropdown:not(:last-child) > z-btn';}
       ::content > z-btn:not(:last-child),
       ::content > z-dropdown:not(:last-child) > z-btn {
         border-top-right-radius: 0;
         border-bottom-right-radius: 0;
       }
+      polyfill-next-selector {content: ':host > z-btn:not(:first-child), z-dropdown:not(:first-child) > z-btn';}
       ::content > z-btn:not(:first-child),
       ::content > z-dropdown:not(:first-child) > z-btn {
         border-top-left-radius: 0;
