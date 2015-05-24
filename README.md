@@ -6,6 +6,12 @@ A group element which contains buttons or dropdowns
 - could add attributes like `[horizontal]` `[layout]` `[flex]` to make `justified` effect
 - could add attributes `[radio]` or `[multi]` to enable radio / checkbox style selection
 
+## Import
+
+```
+<link rel="import" href="z-btn-group/z-btn-group.html">
+```
+
 ## Attributes
 
 - `radio`: enable single selection mode
